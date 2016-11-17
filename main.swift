@@ -10,7 +10,7 @@ class Request {
         let url: URL = URL(string: urlPath)!
         var request: URLRequest = URLRequest(url: url)
 
-        request.httpMethod = "GET"
+        request.httpMethod = method
         request.timeoutInterval = 60
 
         let session = URLSession.shared
