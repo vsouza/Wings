@@ -1,4 +1,4 @@
-PACKAGE_NAME=Suit
+PACKAGE_NAME=Wing
 
 build:
 	@swift build
