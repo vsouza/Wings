@@ -4,7 +4,7 @@ import Foundation
 class Request {
 
     public func doRequest(method: String, url: String) -> [String: Any]? {
-        var result = [String: Any]?
+        var result: [String: Any]?
 
         let urlPath: String = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1"
         let url: URL = URL(string: urlPath)!

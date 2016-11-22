@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "aafc896795a69463a4882a27979f5f15"
+build_time: [533137568, 65219000]
+inputs:
+  "/Users/vinicius.souza/swift/Wing/Sources/main.swift": [533137567, 0]

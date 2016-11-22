@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/vinicius.souza/swift/Wing/.build/debug/Suit.build/master.swiftdeps"
+  },
+  "/Users/vinicius.souza/swift/Wing/Sources/main.swift": {
+    "dependencies": "/Users/vinicius.souza/swift/Wing/.build/debug/Suit.build/main.d",
+    "object": "/Users/vinicius.souza/swift/Wing/.build/debug/Suit.build/main.swift.o",
+    "swiftmodule": "/Users/vinicius.souza/swift/Wing/.build/debug/Suit.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/vinicius.souza/swift/Wing/.build/debug/Suit.build/main.swiftdeps"
+  }
+}
