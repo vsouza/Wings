@@ -35,4 +35,20 @@ class Request {
         let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         return result
     }
+
+    public func get(url: String) -> [String: Any]? {
+        return self.doRequest(method:"GET", url: url)
+    }
+
+    public func post(url: String, data: [String: Any]) -> [String: Any]? {
+        return self.doRequest(method:"POST", url:url)
+    }
+
+    public func delete(url: String) -> [String: Any]? {
+        return self.doRequest(method:"DELETE", url:url)
+    }
+
+    public func put(url: String) -> [String: Any]? {
+        return self.doRequest(method:"PUT", url:url)
+    }
 }
