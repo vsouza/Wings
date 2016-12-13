@@ -36,21 +36,21 @@ class API {
     self.doRequest(method:"GET", url:url, body: nil, headers: nil)
   }
   public func options(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"OPTION", url:url, body: nil, headers: nil)
   }
   public func head(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"HEAD", url:url, body: nil, headers: nil)
   }
   public func post(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"POST", url:url, body: nil, headers: nil)
   }
   public func put(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"PUT", url:url, body: nil, headers: nil)
   }
   public func delete(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"DELETE", url:url, body: nil, headers: nil)
   }
   public func trace(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    self.doRequest(method:"TRACE", url:url, body: nil, headers: nil)
   }
 }
