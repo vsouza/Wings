@@ -3,7 +3,11 @@ import Foundation
 
 class Request {
 
-    public func doRequest(method: String, url: String) -> [String: Any]? {
+    var statusCode: Int?
+    var headers: [String: Any]?
+
+
+    public func prepareRequest(method: String, url: String) -> [String: Any]? {
         var result: [String: Any]?
 
         let urlPath: String = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1"
@@ -17,9 +21,11 @@ class Request {
         let semaphore = DispatchSemaphore.init(value:0)
 
         let task = session.dataTask(with: request)  { (data, response, error) in
-            print(data)
-            print(response)
-            print(error)
+            // print(data.statusCode)
+
+            let r = response as! HTTPURLResponse
+            print(r.allHeaderFields["Content-Length"] as Any)
+            print(r.statusCode)
             semaphore.signal()
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any] {
@@ -36,19 +42,4 @@ class Request {
         return result
     }
 
-    public func get(url: String) -> [String: Any]? {
-        return self.doRequest(method:"GET", url: url)
-    }
-
-    public func post(url: String, data: [String: Any]) -> [String: Any]? {
-        return self.doRequest(method:"POST", url:url)
-    }
-
-    public func delete(url: String) -> [String: Any]? {
-        return self.doRequest(method:"DELETE", url:url)
-    }
-
-    public func put(url: String) -> [String: Any]? {
-        return self.doRequest(method:"PUT", url:url)
-    }
 }
