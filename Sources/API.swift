@@ -1,39 +1,31 @@
 import Foundation
 
 class API {
-  private func doRequest(method: String, url: String, body: [String: Any]?, headers: [String: Any]?) -> [String: Any]?{
-    var result: [String: Any]?
+  private func doRequest(method: String, url: String, body: [String: Any]?, headers: [String: Any]?) -> (Data?, HTTPURLResponse?, Error?) {
     var request: URLRequest = URLRequest(url: URL(string: url)!)
-
     request.httpMethod = method
     request.timeoutInterval = 60
 
     let session = URLSession.shared
     let semaphore = DispatchSemaphore.init(value:0)
 
+    var ddata: Data?
+    var rresponse: HTTPURLResponse()
+    var eerror: Error?
+
     let task = session.dataTask(with: request)  { (data, response, error) in
-        // print(data.statusCode)
-
-        let r = response as! HTTPURLResponse
-        print(r)
-        print(r.statusCode)
+        ddata = data
+        rresponse = response as! HTTPURLResponse
+        eerror = error!
         semaphore.signal()
-        do {
-            if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any] {
-              result = jsonResult
-            }
-        } catch {
-            print("error")
-        }
     }
-
     task.resume()
-
     let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-    return result
+    return (ddata, rresponse, eerror)
   }
   public func get(url: String){
-    self.doRequest(method:"GET", url:url, body: nil, headers: nil)
+    print(self.doRequest(method:"GET", url:url, body: nil, headers: nil))
+
   }
   public func options(url: String){
     self.doRequest(method:"OPTION", url:url, body: nil, headers: nil)
