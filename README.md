@@ -70,7 +70,7 @@ Vinicius Souza – [@iamvsouza](https://twitter.com/iamvsouza) – hi@vsouza.com
 
 Distributed under the MIT license. See [License](http://vsouza.mit-license.org/)
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/vsouza](https://github.com/vsouza/)
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
