@@ -33,6 +33,19 @@ let req = wing.API()
 req.get(url:"http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1")
 ```
 
+__get body__
+
+```swift
+req.body
+```
+
+__headers__
+
+```swift
+req.headers
+```
+
+
 
 ## Development setup
 
