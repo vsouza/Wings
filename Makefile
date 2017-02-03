@@ -1,7 +1,8 @@
 PACKAGE_NAME=Wing
+MODE=debug
 
 build:
 	@swift build
 
 run: build
-	@./.build/debug/$(PACKAGE_NAME)
+	@./.build/$(MODE)/$(PACKAGE_NAME)
