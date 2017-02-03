@@ -40,11 +40,7 @@ if let req = w.get(url:"http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=
 
 __JSON__
 ```swift
-import Wing
-let w = Wings()
-if let req = w.get(url:"http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1", headers:nil){
-  print(req.json)
-}
+req.json
 ```
 
 __headers__
