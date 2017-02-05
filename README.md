@@ -57,7 +57,7 @@ var body : [String: Any] = ["owner": "vsouza"]
 let jsonBody = try? JSONSerialization.data(withJSONObject: body)
 
 let w = Wings()
-if let response = w.post(url: "http://localhost:8080/", headers: headers, body:bojsonBodydy) {
+if let response = w.post(url: "http://localhost:8080/", headers: headers, body:jsonBody) {
     if let json = response.json{
         print(json["owner"]) // vsouza
     }
