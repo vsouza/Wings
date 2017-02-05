@@ -14,8 +14,8 @@ class Wings {
         request.timeoutInterval = timeout
         request.allHTTPHeaderFields = headers
 
-        if body != nil && method == "POST"{   
-            request.httpBody = body
+        if let httpBody = body { 
+            request.httpBody = httpBody
         }
 
         let session = URLSession.shared
@@ -39,4 +39,24 @@ class Wings {
       return self.doRequest(method:"GET", url: url, body: nil, headers: headers, timeout:60)
     }
 
+    public func post(url: String, headers:[String: String]?, body: Data?) -> Response? {
+        guard let reqBody = body else {
+            return nil
+        }
+        return self.doRequest(method:"POST", url: url, body: reqBody, headers: headers, timeout: 60)
+    }
+
+    public func put(url: String, headers:[String: String]?, body: Data?) -> Response? {
+        guard let reqBody = body else {
+            return nil
+        }
+        return self.doRequest(method:"PUT", url: url, body: reqBody, headers: headers, timeout: 60)
+    }
+
+    public func delete(url: String, headers:[String: String]?, body: Data?) -> Response? {
+        guard let reqBody = body else {
+            return nil
+        }
+        return self.doRequest(method:"DELETE", url: url, body: reqBody, headers: headers, timeout: 60)
+    }
 }
