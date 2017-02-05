@@ -17,4 +17,7 @@ struct Response {
       return jsonResponse
     }
   }
+  var text: String? {
+    return String(data: self.data!, encoding: .utf8)
+  }
 }
