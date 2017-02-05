@@ -18,7 +18,7 @@ A beautiful HTTP Client for your Swift projects.
 Add this project on your `Package.swift`
 
 ```swift
-import Wing
+import PackageDescription
 
 let package = Package(
     dependencies: [
