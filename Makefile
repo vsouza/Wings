@@ -1,4 +1,4 @@
-PACKAGE_NAME=Wing
+PACKAGE_NAME=Wings
 MODE=debug
 
 build:
