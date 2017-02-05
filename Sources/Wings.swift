@@ -5,13 +5,18 @@ class Wings {
 
     var resp = Response()
 
-    private func doRequest(method: String, url: String, body: Any?, headers:[AnyHashable : Any]?, timeout: Double) -> Response? {
+    private func doRequest(method: String, url: String, body: Data?, headers:[String: String]?, timeout: Double) -> Response? {
         let urlPath: String = url
         let url = URL(string: urlPath)!
         var request: URLRequest = URLRequest(url: url)
 
         request.httpMethod = method
         request.timeoutInterval = timeout
+        request.allHTTPHeaderFields = headers
+
+        if body != nil && method == "POST"{   
+            request.httpBody = body
+        }
 
         let session = URLSession.shared
         let semaphore = DispatchSemaphore.init(value:0)
@@ -30,9 +35,8 @@ class Wings {
         return self.resp
     }
 
-    public func get(url: String, headers:[String: Any]?) -> Response? {
-      let hashableHeaders = headers as [AnyHashable: Any]?
-      return self.doRequest(method:"GET", url: url, body: nil, headers: hashableHeaders, timeout:60)
+    public func get(url: String, headers:[String: String]?) -> Response? {
+      return self.doRequest(method:"GET", url: url, body: nil, headers: headers, timeout:60)
     }
 
 }
