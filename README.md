@@ -52,7 +52,7 @@ if let response = w.get(url:"http://localhost:8080/", headers:nil){
 ```swift
 import Wings
 
-
+var headers: [String: String] = ["Content-Type": "application/json"]
 var body : [String: Any] = ["owner": "vsouza"]
 let jsonBody = try? JSONSerialization.data(withJSONObject: body)
 
