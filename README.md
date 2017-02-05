@@ -1,17 +1,17 @@
+<img src="header.png" width="800" align="center" />
+
 # Wings
-> [In Development] Pure Swift cURL Requests.
+> Pure Swift cURL Requests.
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 [![codebeat-badge][codebeat-image]][codebeat-url]
 
-Inspired on [Python Request](https://github.com/kennethreitz/requests), this project it's entirely
-written in Swift.
+Inspired on [Python Requests](https://github.com/kennethreitz/requests).
 
-It's a simple, reliable and beautiful HTTP Client to general purpose.
+A beautiful HTTP Client for your Swift projects.
 
-![](header.png)
 
 ## Installation
 
@@ -22,7 +22,7 @@ import Wing
 
 let package = Package(
     dependencies: [
-        .Package(url: "https://github.com/vsouza/wing.git", majorVersion: 0, minor: 0)
+        .Package(url: "https://github.com/vsouza/wings.git", majorVersion: 0, minor: 0)
     ]
 )
 ```
@@ -30,43 +30,41 @@ let package = Package(
 ## Usage example
 
 
+### GET
 ```swift
-import Wing
+import Wings
 let w = Wings()
-if let req = w.get(url:"http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC&limit=1", headers:nil){
-  print(req) \\ prints a Response() type
+if let response = w.get(url:"http://localhost:8080/", headers:nil){
+
+  print(response) \\ Response() struct type
+
+  print(response.headers) \\ list of headers [AnyHashable : Any]?
+  print(response.statusCode) \\ (Int?)
+
+  print(response.json) \\ json response ([String: Any]?)
+  print(response.text) \\ text response (String?)
+
 }
 ```
 
-__JSON__
-```swift
-req.json
-```
-
-__headers__
+### POST JSON
 
 ```swift
-req.headers
+import Wings
+
+
+var body : [String: Any] = ["owner": "vsouza"]
+let jsonBody = try? JSONSerialization.data(withJSONObject: body)
+
+let w = Wings()
+if let response = w.post(url: "http://localhost:8080/", headers: headers, body:bojsonBodydy) {
+    if let json = response.json{
+        print(json["owner"]) // vsouza
+    }
+}
+
 ```
 
-__Status Code__
-
-```swift
-req.statusCode
-```
-
-
-## Development setup
-
-__Install swiftenv__
-
-See: [swiftenv](https://github.com/kylef/swiftenv)
-
-then run:
-
-```sh
-make install
-```
 
 ## Release History
 
