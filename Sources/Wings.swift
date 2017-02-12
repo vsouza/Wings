@@ -4,6 +4,10 @@ import Foundation
 public class Wings {
 
     var resp = Response()
+    
+    public init() {
+       // This initializer intentionally left empty
+    }
 
     private func doRequest(method: String, url: String, body: Data?, headers:[String: String]?, timeout: Double) -> Response? {
         let urlPath: String = url
