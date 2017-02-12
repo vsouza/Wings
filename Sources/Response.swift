@@ -1,6 +1,6 @@
 import Foundation
 
-struct Response {
+public struct Response {
 
   var statusCode: Int?
   var headers: [AnyHashable : Any]?
