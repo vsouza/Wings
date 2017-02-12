@@ -1,7 +1,7 @@
 import Foundation
 
 
-class Wings {
+public class Wings {
 
     var resp = Response()
 
