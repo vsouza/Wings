@@ -2,10 +2,10 @@ import Foundation
 
 public struct Response {
 
-  var statusCode: Int?
-  var headers: [AnyHashable : Any]?
-  var data: Data?
-  var json: [String: Any]? {
+  public var statusCode: Int?
+  public var headers: [AnyHashable : Any]?
+  public var data: Data?
+  public var json: [String: Any]? {
     get{
       var jsonResponse: [String: Any]?
       do {
@@ -17,7 +17,7 @@ public struct Response {
       return jsonResponse
     }
   }
-  var text: String? {
+  public var text: String? {
     return String(data: self.data!, encoding: .utf8)
   }
 }
